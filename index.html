@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customizable Webpage</title>
+  <style>
+    body {
+      background-color: var(--background-color, #ffffff);
+      color: var(--text-color, #121212);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="custom-text">Welcome to My Customizable Webpage</h1>
+  <button id="change-bg-color">Change Background Color</button>
+  <input type="color" id="color-input">
+  <button id="change-text-color">Change Text Color</button>
+  <input type="text" id="text-input" placeholder="Enter custom text">
+  <button id="change-text-content">Change Text Content</button>
+  <script>
+    const changeBgColorButton = document.getElementById("change-bg-color");
+    const colorInput = document.getElementById("color-input");
+    const changeTextColorButton = document.getElementById("change-text-color");
+    const textInput = document.getElementById("text-input");
+    const changeTextContentButton = document.getElementById("change-text-content");
+    const customText = document.getElementById("custom-text");
+
+    changeBgColorButton.addEventListener("click", () => {
+      const selectedColor = colorInput.value;
+      document.documentElement.style.setProperty('--background-color', selectedColor);
+    });
+
+    changeTextColorButton.addEventListener("click", () => {
+      const selectedColor = colorInput.value;
+      document.documentElement.style.setProperty('--text-color', selectedColor);
+    });
+
+    changeTextContentButton.addEventListener("click", () => {
+      const newText = textInput.value;
+      customText.textContent = newText;
+    });
+  </script>
+</body>
+</html>
